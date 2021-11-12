@@ -54,7 +54,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar companyName="TextEditor" mode={mode} toggleMode={toggleMode} />
+        <Navbar companyName="TextCounter" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
 
         <Switch>
@@ -65,11 +65,13 @@ function App() {
           </Route>
 
           <Route exact path="/">
-            <div className="container ">
-              <Welcome name="KUSHAL" mode={mode} />
+            <div className="container pt-5 ">
+              <Welcome message="Enter Your Text :" mode={mode} />
               <TextForm mode={mode} showAlert={showAlert} />
             </div>
           </Route>
+
+
         </Switch>
       </Router>
 

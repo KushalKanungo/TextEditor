@@ -4,9 +4,9 @@ import React, { useState } from "react";
 
 function TextForm(props) {
 
-  const middleStyle = {              // CSs
-        textAlign: "center",
-    }
+//   const middleStyle = {              // CSs
+//         textAlign: "center",
+//     }
 
     const [text, setText] = useState("")
   
@@ -35,23 +35,25 @@ function TextForm(props) {
 
     return (
         <div>
-            <div className="container" style={middleStyle}>
+            <div className="container" >
                 
                 <textarea
-                    className="form-control mt-5"
+                    className="form-control mt-4"
                     id="exampleFormControlTextarea1"
                     rows="10"
                     style={{"backgroundColor": props.mode==='dark'? '#151426' : 'white', 'color': props.mode==='dark'? 'white' : 'black' }}
                     value={text}
                     onChange={handleOnChange}
                 ></textarea>
-                <button className="btn btn-primary btn-sm mx-2 mt-3" onClick={handleUpClick}>Uppercase</button>
-                <button className="btn btn-primary btn-sm mx-2 mt-3" onClick={handleLoClick}>Lowercase</button>
-                <button className="btn btn-primary btn-sm mx-2 mt-3" onClick={clearText}>ClearText</button>
+
+                <button className="btn btn-primary rightpadding mt-3" onClick={handleUpClick}>Uppercase</button>
+                <button className="btn btn-primary rightpadding mt-3" onClick={handleLoClick}>Lowercase</button>
+                <button className="btn btn-primary rightpadding mt-3" onClick={clearText}>ClearText</button>
             </div>
-            <div className="container" style={{'color': props.mode==='dark'? 'white' : 'black'}}>
-                <label htmlFor="count" style={{ "padding": "20px" }}>Total Chracters {text.length}</label>
-                <label htmlFor="count">Total Words {text.split(" ").length}</label>
+            <div className="container pt-2" style={{'color': props.mode==='dark'? 'white' : 'black'}}>
+                <label htmlFor="count" className="pt-2">Total Characters {text.length}   </label>
+                <br />  
+                <label htmlFor="count" className="pt-2">Total Words {text.split(" ").filter(item=> {return item!==""}).length}</label>
             </div>
         </div>
     );
